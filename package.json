@@ -1,0 +1,22 @@
+{
+  "name": "selenium-grid-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch -e chrome_local"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgarcia-dev/selenium-grid-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgarcia-dev/selenium-grid-test/issues"
+  },
+  "homepage": "https://github.com/sgarcia-dev/selenium-grid-test#readme",
+  "devDependencies": {
+    "nightwatch": "^0.9.21"
+  }
+}

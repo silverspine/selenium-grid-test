@@ -5,9 +5,9 @@
 
   <testsuite name="google.spec"
     errors="0" failures="0" hostname="" id="" package="google.spec" skipped="0"
-    tests="1" time="11.72" timestamp="Thu, 21 Jun 2018 21:53:56 GMT">
+    tests="1" time="11.66" timestamp="Thu, 21 Jun 2018 22:05:58 GMT">
   
-    <testcase name="Google can be accessed." classname="google.spec" time="11.72" assertions="2">
+    <testcase name="Google can be accessed." classname="google.spec" time="11.66" assertions="2">
 
     
 

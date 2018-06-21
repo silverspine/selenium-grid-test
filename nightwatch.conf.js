@@ -6,8 +6,8 @@ const config = {
     path: {
         tests: path.resolve(__dirname, "./test"),
         reports: path.resolve(__dirname, "./reports"),
-        selenium: path.resolve(__dirname, "./bin/selenium-server-standalone-2.47.1.jar"),
-        chromedriver: path.resolve(__dirname, "./bin/chromedriver_new")
+        selenium: path.resolve(__dirname, "./bin/selenium-server-standalone-3.11.0.jar"),
+        chromedriver: path.resolve(__dirname, "./bin/chromedriver_linux")
     }
 };
 

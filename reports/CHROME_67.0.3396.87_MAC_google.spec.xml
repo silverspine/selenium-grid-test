@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="google.spec"
+    errors="0" failures="0" hostname="" id="" package="google.spec" skipped="0"
+    tests="1" time="11.72" timestamp="Thu, 21 Jun 2018 21:53:56 GMT">
+  
+    <testcase name="Google can be accessed." classname="google.spec" time="11.72" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

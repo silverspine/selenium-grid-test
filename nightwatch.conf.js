@@ -2,7 +2,7 @@ const path = require("path");
 
 const config = {
     selenium_port: 4444,
-    selenium_host: "10.38.101.211",
+    selenium_host: "10.38.102.191",
     path: {
         tests: path.resolve(__dirname, "./test"),
         reports: path.resolve(__dirname, "./reports"),

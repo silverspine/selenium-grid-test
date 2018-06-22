@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Google_Search" timestamp="2018-06-22T17:03:10" time="6.081" tests="1" failures="0" errors="0" skipped="0">
+  <testsuite name="Google_Search" timestamp="2018-06-22T17:04:53" time="5.922" tests="1" failures="0" errors="0" skipped="0">
     <properties>
       <property name="specId" value="e7a106b1cf59d8b8c674de175ff856ed"/>
       <property name="suiteName" value="Google Search"/>
       <property name="capabilities" value="chrome"/>
       <property name="file" value="./webdriverio/google.spec.js"/>
     </properties>
-    <testcase classname="chrome.Google_Search" name="WebdriverIO_search_should_have_the_right_title" time="6.079">
+    <testcase classname="chrome.Google_Search" name="WebdriverIO_search_should_have_the_right_title" time="5.922">
       <system-out>
         <![CDATA[
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/url - {"url":"https://www.google.com/ncr"}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":null}
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/elements - {"using":"css selector","value":"input[name=q]"}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":[{"ELEMENT":"0.4994760948767045-1"}]}
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/element/0.4994760948767045-1/clear - {}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":null}
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/element/0.4994760948767045-1/value - {"value":["W","e","b","d","r","i","v","e","r","I","(1 more items)"],"text":"WebdriverIO"}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":null}
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/element - {"using":"css selector","value":"input[value=\"Google Search\"]"}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":{"ELEMENT":"0.4994760948767045-2"}}
-COMMAND: POST http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/element/0.4994760948767045-2/click - {}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":null}
-COMMAND: GET http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef/title - {}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":"WebdriverIO - Google Search"}
-COMMAND: DELETE http://127.0.0.1:4444/wd/hub/session/f58c3df2974348ca9235c0d0667c1aef - {}
-RESULT: {"sessionId":"f58c3df2974348ca9235c0d0667c1aef","status":0,"value":null}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/url - {"url":"https://www.google.com/ncr"}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":null}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/elements - {"using":"css selector","value":"input[name=q]"}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":[{"ELEMENT":"0.05505632541833494-1"}]}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/element/0.05505632541833494-1/clear - {}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":null}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/element/0.05505632541833494-1/value - {"value":["W","e","b","d","r","i","v","e","r","I","(1 more items)"],"text":"WebdriverIO"}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":null}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/element - {"using":"css selector","value":"input[value=\"Google Search\"]"}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":{"ELEMENT":"0.05505632541833494-2"}}
+COMMAND: POST http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/element/0.05505632541833494-2/click - {}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":null}
+COMMAND: GET http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2/title - {}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":"WebdriverIO - Google Search"}
+COMMAND: DELETE http://127.0.0.1:4444/wd/hub/session/7aada74214ea052f9c9c01432e3d0bb2 - {}
+RESULT: {"sessionId":"7aada74214ea052f9c9c01432e3d0bb2","status":0,"value":null}
 ]]>
       </system-out>
     </testcase>

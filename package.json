@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "nightwatch-test": "nightwatch --env chrome_local",
-    "webdriver-test": "jest ./jest"
+    "webdriver-test": "wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",

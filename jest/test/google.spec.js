@@ -1,7 +1,14 @@
 // WEBDRIVERIO STANDALONE + JEST
 
 const webdriverio = require('webdriverio');
-const options = { desiredCapabilities: { browserName: 'chrome' } };
+const options = {
+    desiredCapabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ["--no-sandbox", "disable-web-security", "--disable-dev-shm-usage"]
+        } 
+    } 
+};
 const client = webdriverio.remote(options);
 
 beforeEach(async () => {
@@ -14,7 +21,7 @@ test('Google Search for WebdriverIO has correct title', async () => {
     await client.click('input[value="Google Search"]');
     const title = await client.getTitle();
     expect(title).toBe('WebdriverIO - Google Search');
-}, 16000);
+}, 25000);
 
 afterEach(async () => {
     await client.end();

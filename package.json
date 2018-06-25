@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "nightwatch-test": "nightwatch --env chrome_local",
-    "webdriver-test": "wdio wdio.conf.js"
+    "webdriver-test": "wdio wdio.conf.js",
+    "jest-test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,9 @@
   },
   "homepage": "https://github.com/sgarcia-dev/selenium-grid-test#readme",
   "devDependencies": {
+    "colors": "^1.3.0",
+    "jest": "^23.2.0",
+    "selenium-server": "^3.12.0",
     "selenium-standalone": "^6.15.1",
     "wdio-junit-reporter": "^0.4.3",
     "wdio-mocha-framework": "^0.6.1",

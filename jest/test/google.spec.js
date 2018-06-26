@@ -15,15 +15,13 @@ beforeEach(async () => {
     await client.init();
 })
 
-test('Google Search for WebdriverIO has correct title', async (done) => {
-    jest.setTimeout(30000)
+test('Google Search for WebdriverIO has correct title', async () => {
     await client.url('https://www.google.com/ncr');
     await client.setValue('input[name=q]', 'WebdriverIO');
     await client.click('input[value="Google Search"]');
     const title = await client.getTitle();
     expect(title).toBe('WebdriverIO - Google Search');
-    done();
-}, 30000);
+}, 10000);
 
 afterEach(async () => {
     await client.end();

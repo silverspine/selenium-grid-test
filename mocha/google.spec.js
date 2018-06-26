@@ -17,7 +17,7 @@ describe("Inner Suite 1", function(){
             desiredCapabilities: {
                 browserName: 'chrome',
                 chromeOptions: {
-                    binary: path.resolve('./bin', 'chromedriver_linux'),
+                    // binary: path.resolve('./bin', 'chromedriver_linux'),
                     args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
                 }
             } 

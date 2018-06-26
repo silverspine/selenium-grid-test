@@ -2,7 +2,7 @@ const selenium = require('selenium-standalone');
 const webdriverio = require('webdriverio');
 const {expect} = require('chai');
 require('colors');
-const CHROME_DRIVER_VERSION = '2.29';
+const CHROME_DRIVER_VERSION = '2.37';
 
 let SELENIUM_SERVER, client;
 

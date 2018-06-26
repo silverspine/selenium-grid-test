@@ -41,6 +41,15 @@ function startSelenium () {
     return new Promise((resolve, reject) => {
         console.log('Installing selenium server ...'.bgBlue);
         selenium.install({
+            drivers: {
+                chrome: {
+                    // check for more recent versions of chrome driver here:
+                    // https://chromedriver.storage.googleapis.com/index.html
+                    version: '2.37',
+                    arch: process.arch,
+                    baseURL: 'https://chromedriver.storage.googleapis.com'
+                }
+            }
         }, onSeleniumInstall);
 
         function onSeleniumInstall(err) {
@@ -49,7 +58,17 @@ function startSelenium () {
                 reject(err);
             }
             console.log('Starting selenium server ...'.bgBlue);
-            selenium.start({}, onSeleniumStart)
+            selenium.start({
+                drivers: {
+                    chrome: {
+                        // check for more recent versions of chrome driver here:
+                        // https://chromedriver.storage.googleapis.com/index.html
+                        version: '2.37',
+                        arch: process.arch,
+                        baseURL: 'https://chromedriver.storage.googleapis.com'
+                    }
+                }
+            }, onSeleniumStart)
         }
         
         function onSeleniumStart(err, childProcess) {

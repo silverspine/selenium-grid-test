@@ -7,27 +7,27 @@ let SELENIUM_SERVER, client;
 
 describe("Inner Suite 1", function(){
     before(function(){
-        this.timeout(40000);
+        this.timeout(200000);
         return startSelenium();
     });
  
     after(function(){
-        this.timeout(40000);
+        this.timeout(200000);
         return SELENIUM_SERVER.kill();
     });
     
     beforeEach(function(){
-        this.timeout(40000);
+        this.timeout(200000);
         return client.init();
     });
  
     afterEach(function(){
-        this.timeout(40000);
+        this.timeout(200000);
         return client.end();
     });
   
     it("Google mocha test", async function(){
-        this.timeout(40000);
+        this.timeout(200000);
         await client.url('https://www.google.com/ncr');
         await client.setValue('input[name=q]', 'WebdriverIO');
         await client.click('input[value="Google Search"]');

@@ -8,15 +8,26 @@ const CHROME_DRIVER_VERSION = '2.40';
 let SELENIUM_SERVER, client;
 
 describe("Inner Suite 1", function(){
-    before(function(){
+    before(function(done){
         this.timeout(200000);
-        return startSelenium();
+        // return startSelenium();
+        client = webdriverio.remote({
+            port: 4444,
+            host: '10.38.102.191',
+            desiredCapabilities: {
+                browserName: 'chrome',
+                chromeOptions: {
+                    args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
+                } 
+            } 
+        });
+        done();
     });
  
-    after(function(){
-        this.timeout(200000);
-        return SELENIUM_SERVER.kill();
-    });
+    // after(function(){
+    //     this.timeout(200000);
+    //     return SELENIUM_SERVER.kill();
+    // });
     
     beforeEach(function(){
         this.timeout(200000);

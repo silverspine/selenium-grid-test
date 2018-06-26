@@ -6,23 +6,28 @@ require('colors');
 let SELENIUM_SERVER, client;
 
 describe("Inner Suite 1", function(){
-    before(async function(){
-        await startSelenium();
+    before(function(){
+        this.timeout(40000);
+        return startSelenium();
     });
  
-    after(async function(){
-        await SELENIUM_SERVER.kill();
+    after(function(){
+        this.timeout(40000);
+        return SELENIUM_SERVER.kill();
     });
     
-    beforeEach(async function(){
-        await client.init();
+    beforeEach(function(){
+        this.timeout(40000);
+        return client.init();
     });
  
     afterEach(function(){
+        this.timeout(40000);
         return client.end();
     });
   
     it("Google mocha test", async function(){
+        this.timeout(40000);
         await client.url('https://www.google.com/ncr');
         await client.setValue('input[name=q]', 'WebdriverIO');
         await client.click('input[value="Google Search"]');

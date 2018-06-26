@@ -45,7 +45,7 @@ function startSelenium () {
                 chrome: {
                     // check for more recent versions of chrome driver here:
                     // https://chromedriver.storage.googleapis.com/index.html
-                    version: '2.34',
+                    version: '2.32',
                     arch: process.arch,
                     baseURL: 'https://chromedriver.storage.googleapis.com'
                 }
@@ -63,7 +63,7 @@ function startSelenium () {
                     chrome: {
                         // check for more recent versions of chrome driver here:
                         // https://chromedriver.storage.googleapis.com/index.html
-                        version: '2.34',
+                        version: '2.32',
                         arch: process.arch,
                         baseURL: 'https://chromedriver.storage.googleapis.com'
                     }

@@ -1,8 +1,9 @@
+const path = require('path');
 const selenium = require('selenium-standalone');
 const webdriverio = require('webdriverio');
 const {expect} = require('chai');
 require('colors');
-const CHROME_DRIVER_VERSION = '2.37';
+const CHROME_DRIVER_VERSION = '2.40';
 
 let SELENIUM_SERVER, client;
 

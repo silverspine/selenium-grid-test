@@ -46,7 +46,7 @@ describe("Inner Suite 1", function(){
         // await client.setValue('input[name=q]', 'WebdriverIO');
         // await client.click('input[value="Google Search"]');
         const title = await client.getTitle();
-        expect(title).equals('WebdriverIO - Google Search');
+        expect(title).equals('WebdriverIO - Google Search - Error');
     });
   
 });

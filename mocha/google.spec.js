@@ -17,8 +17,9 @@ describe("Inner Suite 1", function(){
             desiredCapabilities: {
                 browserName: 'chrome',
                 chromeOptions: {
+                    binary: path.resolve('./bin', 'chromedriver_linux'),
                     args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
-                } 
+                }
             } 
         });
         done();
@@ -41,9 +42,9 @@ describe("Inner Suite 1", function(){
   
     it("Google mocha test", async function(){
         this.timeout(200000);
-        await client.url('https://www.google.com/ncr');
-        await client.setValue('input[name=q]', 'WebdriverIO');
-        await client.click('input[value="Google Search"]');
+        await client.url('https://www.google.com/search?q=WebdriverIO');
+        // await client.setValue('input[name=q]', 'WebdriverIO');
+        // await client.click('input[value="Google Search"]');
         const title = await client.getTitle();
         expect(title).equals('WebdriverIO - Google Search');
     });

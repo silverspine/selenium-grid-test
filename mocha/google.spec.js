@@ -6,26 +6,16 @@ require('colors');
 let SELENIUM_SERVER, client;
 
 describe("Inner Suite 1", function(){
-    before(function(){
-        return startSelenium().then(() => {
-            client = webdriverio.remote({
-                desiredCapabilities: {
-                    browserName: 'chrome',
-                    chromeOptions: {
-                        args: ["--no-sandbox", "disable-web-security", "--disable-dev-shm-usage"]
-                    } 
-                } 
-            });
-        });
+    before(async function(){
+        await startSelenium();
     });
  
-    after(function(done){
-        SELENIUM_SERVER.kill();
-        done();
+    after(async function(){
+        await SELENIUM_SERVER.kill();
     });
     
-    beforeEach(function(){
-        return client.init();
+    beforeEach(async function(){
+        await client.init();
     });
  
     afterEach(function(){
@@ -63,8 +53,16 @@ function startSelenium () {
                 reject(err);
             }
             console.log('Selenium server started ...'.bgGreen);
-            SELENIUM_SERVER = childProcess; 
-            resolve(childProcess);
+            SELENIUM_SERVER = childProcess;
+            client = webdriverio.remote({
+                desiredCapabilities: {
+                    browserName: 'chrome',
+                    chromeOptions: {
+                        args: ["--no-sandbox", "disable-web-security", "--disable-dev-shm-usage"]
+                    } 
+                } 
+            });
+            resolve();
         }
     });
 }

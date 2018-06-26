@@ -83,7 +83,7 @@ function startSelenium () {
                 desiredCapabilities: {
                     browserName: 'chrome',
                     chromeOptions: {
-                        args: ["--no-sandbox", "--disable-dev-shm-usage"]
+                        args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
                     } 
                 } 
             });

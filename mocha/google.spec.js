@@ -2,6 +2,7 @@ const selenium = require('selenium-standalone');
 const webdriverio = require('webdriverio');
 const {expect} = require('chai');
 require('colors');
+const CHROME_DRIVER_VERSION = '2.29';
 
 let SELENIUM_SERVER, client;
 
@@ -45,7 +46,7 @@ function startSelenium () {
                 chrome: {
                     // check for more recent versions of chrome driver here:
                     // https://chromedriver.storage.googleapis.com/index.html
-                    version: '2.29',
+                    version: CHROME_DRIVER_VERSION,
                     arch: process.arch,
                     baseURL: 'https://chromedriver.storage.googleapis.com'
                 }
@@ -63,7 +64,7 @@ function startSelenium () {
                     chrome: {
                         // check for more recent versions of chrome driver here:
                         // https://chromedriver.storage.googleapis.com/index.html
-                        version: '2.32',
+                        version: CHROME_DRIVER_VERSION,
                         arch: process.arch,
                         baseURL: 'https://chromedriver.storage.googleapis.com'
                     }

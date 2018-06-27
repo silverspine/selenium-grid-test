@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "nightwatch-test": "nightwatch --env chrome_local",
-    "webdriver-test": "wdio wdio.conf.js",
-    "jest-test": "jest --config jest.config.js",
     "mocha-test": "mocha mocha/google.spec.js",
-    "automation-local": "cross-env NODE_ENV=dev mocha mocha/google.spec.js",
-    "automation-headless": "cross-env NODE_ENV=dev CHROME_MODE=headless mocha mocha/google.spec.js",
+    "automation-jest-local": "cross-env NODE_ENV=dev CHROME_MODE=headless jest --config ./jest.config.js",
+    "automation-jest-grid": "cross-env NODE_ENV=prod jest --config ./jest.config.js",
+    "automation-local": "cross-env NODE_ENV=dev CHROME_MODE=headless mocha mocha/google.spec.js",
     "automation-grid": "cross-env NODE_ENV=prod mocha mocha/google.spec.js  --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/MochaWebdriverIO.xml"
   },
   "repository": {

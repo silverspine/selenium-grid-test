@@ -9,6 +9,7 @@
     "jest-test": "jest --config jest.config.js",
     "mocha-test": "mocha mocha/google.spec.js",
     "automation-local": "cross-env NODE_ENV=dev mocha mocha/google.spec.js",
+    "automation-headless": "cross-env NODE_ENV=dev CHROME_MODE=headless mocha mocha/google.spec.js",
     "automation-grid": "cross-env NODE_ENV=prod mocha mocha/google.spec.js"
   },
   "repository": {

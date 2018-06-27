@@ -6,6 +6,7 @@ require('colors');
 
 const DEV_ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase().includes('dev'),
     PROD_ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase().includes('prod'),
+    HEADLESS_CHROME = process.env.CHROME_MODE && process.env.CHROME_MODE.toLowerCase().includes('headless'),
     CHROME_DRIVER_VERSION = '2.40',
     GRID_HOST = '10.38.102.191';
 
@@ -37,7 +38,7 @@ describe("Google Spec Suite", function(){
         return WEBDRIVER_CLIENT.end();
     });
   
-    it("Google mocha test", async function(){
+    it('Google "WebdriverIO" test', async function(){
         this.timeout(200000);
         await WEBDRIVER_CLIENT.url('https://www.google.com/search?q=WebdriverIO');
         // await WEBDRIVER_CLIENT.setValue('input[name=q]', 'WebdriverIO');
@@ -45,7 +46,24 @@ describe("Google Spec Suite", function(){
         const title = await WEBDRIVER_CLIENT.getTitle();
         expect(title).equals('WebdriverIO - Google Search');
     });
-  
+
+    it('Google "Mocha" test', async function(){
+        this.timeout(200000);
+        await WEBDRIVER_CLIENT.url('https://www.google.com/search?q=Mocha');
+        // await WEBDRIVER_CLIENT.setValue('input[name=q]', 'WebdriverIO');
+        // await WEBDRIVER_CLIENT.click('input[value="Google Search"]');
+        const title = await WEBDRIVER_CLIENT.getTitle();
+        expect(title).equals('Mocha - Google Search');
+    });
+
+    it('Google "Expedia" test', async function(){
+        this.timeout(200000);
+        await WEBDRIVER_CLIENT.url('https://www.google.com/search?q=Expedia');
+        // await WEBDRIVER_CLIENT.setValue('input[name=q]', 'WebdriverIO');
+        // await WEBDRIVER_CLIENT.click('input[value="Google Search"]');
+        const title = await WEBDRIVER_CLIENT.getTitle();
+        expect(title).equals('Expedia - Google Search');
+    });
 });
 
 function startSelenium () {
@@ -94,7 +112,9 @@ function startWebdriverClient() {
         } 
     };
 
-    if (PROD_ENV) {
+    if (DEV_ENV && HEADLESS_CHROME) {
+        webdriverOptions.desiredCapabilities.chromeOptions.args.push("--headless");
+    } else if (PROD_ENV) {
         webdriverOptions.port = 4444;
         webdriverOptions.host = GRID_HOST;
         webdriverOptions.desiredCapabilities.chromeOptions.args.push("--headless");

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="10.29" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2018-06-27T20:34:37" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Google Spec Suite" timestamp="2018-06-27T20:34:37" tests="3" file="C:\Users\Sergei\Code\selenium-grid-test\mocha\google.spec.js" failures="0" time="10.29">
+    <testcase name="Google Spec Suite Google &quot;WebdriverIO&quot; test" time="3.455" classname="Google &quot;WebdriverIO&quot; test">
+    </testcase>
+    <testcase name="Google Spec Suite Google &quot;Mocha&quot; test" time="3.478" classname="Google &quot;Mocha&quot; test">
+    </testcase>
+    <testcase name="Google Spec Suite Google &quot;Expedia&quot; test" time="3.357" classname="Google &quot;Expedia&quot; test">
+    </testcase>
+  </testsuite>
+</testsuites>

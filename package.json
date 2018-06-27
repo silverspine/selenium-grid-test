@@ -10,7 +10,7 @@
     "mocha-test": "mocha mocha/google.spec.js",
     "automation-local": "cross-env NODE_ENV=dev mocha mocha/google.spec.js",
     "automation-headless": "cross-env NODE_ENV=dev CHROME_MODE=headless mocha mocha/google.spec.js",
-    "automation-grid": "cross-env NODE_ENV=prod mocha mocha/google.spec.js"
+    "automation-grid": "cross-env NODE_ENV=prod mocha mocha/google.spec.js  --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/MochaWebdriverIO.xml"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "cross-env": "^5.2.0",
     "jest": "^23.2.0",
     "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.17.0",
     "selenium-server": "^3.12.0",
     "selenium-standalone": "^6.15.1",
     "wdio-junit-reporter": "^0.4.3",

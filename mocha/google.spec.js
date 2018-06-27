@@ -3,67 +3,62 @@ const selenium = require('selenium-standalone');
 const webdriverio = require('webdriverio');
 const {expect} = require('chai');
 require('colors');
-const CHROME_DRIVER_VERSION = '2.40';
 
-let SELENIUM_SERVER, client;
+const DEV_ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase().includes('dev'),
+    PROD_ENV = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase().includes('prod'),
+    CHROME_DRIVER_VERSION = '2.40',
+    GRID_HOST = '10.38.102.191';
 
-describe("Inner Suite 1", function(){
-    before(function(done){
+let SELENIUM_SERVER, WEBDRIVER_CLIENT;
+
+describe("Google Spec Suite", function(){
+    before(async function() {
         this.timeout(200000);
-        // return startSelenium();
-        client = webdriverio.remote({
-            port: 4444,
-            host: '10.38.102.191',
-            desiredCapabilities: {
-                browserName: 'chrome',
-                chromeOptions: {
-                    // binary: path.resolve('./bin', 'chromedriver_linux'),
-                    args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
-                }
-            } 
-        });
-        done();
+        if (DEV_ENV) {
+            await startSelenium();
+        }
+        startWebdriverClient();
     });
  
-    // after(function(){
-    //     this.timeout(200000);
-    //     return SELENIUM_SERVER.kill();
-    // });
+    after(async function(){
+        this.timeout(200000);
+        if (DEV_ENV) {
+            await SELENIUM_SERVER.kill();
+        }
+    });
     
     beforeEach(function(){
         this.timeout(200000);
-        return client.init();
+        return WEBDRIVER_CLIENT.init();
     });
  
     afterEach(function(){
         this.timeout(200000);
-        return client.end();
+        return WEBDRIVER_CLIENT.end();
     });
   
     it("Google mocha test", async function(){
         this.timeout(200000);
-        await client.url('https://www.google.com/search?q=WebdriverIO');
-        // await client.setValue('input[name=q]', 'WebdriverIO');
-        // await client.click('input[value="Google Search"]');
-        const title = await client.getTitle();
-        expect(title).equals('WebdriverIO - Google Search - Error');
+        await WEBDRIVER_CLIENT.url('https://www.google.com/search?q=WebdriverIO');
+        // await WEBDRIVER_CLIENT.setValue('input[name=q]', 'WebdriverIO');
+        // await WEBDRIVER_CLIENT.click('input[value="Google Search"]');
+        const title = await WEBDRIVER_CLIENT.getTitle();
+        expect(title).equals('WebdriverIO - Google Search');
     });
   
 });
 
 function startSelenium () {
+    const CHROME_DRIVER_CONFIG = {
+        version: CHROME_DRIVER_VERSION,
+        arch: process.arch,
+        baseURL: 'https://chromedriver.storage.googleapis.com'
+    };
+
     return new Promise((resolve, reject) => {
         console.log('Installing selenium server ...'.bgBlue);
         selenium.install({
-            drivers: {
-                chrome: {
-                    // check for more recent versions of chrome driver here:
-                    // https://chromedriver.storage.googleapis.com/index.html
-                    version: CHROME_DRIVER_VERSION,
-                    arch: process.arch,
-                    baseURL: 'https://chromedriver.storage.googleapis.com'
-                }
-            }
+            drivers: { chrome: CHROME_DRIVER_CONFIG }
         }, onSeleniumInstall);
 
         function onSeleniumInstall(err) {
@@ -73,15 +68,7 @@ function startSelenium () {
             }
             console.log('Starting selenium server ...'.bgBlue);
             selenium.start({
-                drivers: {
-                    chrome: {
-                        // check for more recent versions of chrome driver here:
-                        // https://chromedriver.storage.googleapis.com/index.html
-                        version: CHROME_DRIVER_VERSION,
-                        arch: process.arch,
-                        baseURL: 'https://chromedriver.storage.googleapis.com'
-                    }
-                }
+                drivers: { chrome: CHROME_DRIVER_CONFIG }
             }, onSeleniumStart)
         }
         
@@ -92,15 +79,26 @@ function startSelenium () {
             }
             console.log('Selenium server started ...'.bgGreen);
             SELENIUM_SERVER = childProcess;
-            client = webdriverio.remote({
-                desiredCapabilities: {
-                    browserName: 'chrome',
-                    chromeOptions: {
-                        args: ["--no-sandbox", "--headless", "--disable-dev-shm-usage"]
-                    } 
-                } 
-            });
             resolve();
         }
     });
+}
+
+function startWebdriverClient() {
+    const webdriverOptions = {
+        desiredCapabilities: {
+            browserName: 'chrome',
+            chromeOptions: {
+                args: ["--no-sandbox", "--disable-dev-shm-usage"]
+            } 
+        } 
+    };
+
+    if (PROD_ENV) {
+        webdriverOptions.port = 4444;
+        webdriverOptions.host = GRID_HOST;
+        webdriverOptions.desiredCapabilities.chromeOptions.args.push("--headless");
+    }
+
+    WEBDRIVER_CLIENT = webdriverio.remote(webdriverOptions);
 }

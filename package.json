@@ -7,7 +7,9 @@
     "nightwatch-test": "nightwatch --env chrome_local",
     "webdriver-test": "wdio wdio.conf.js",
     "jest-test": "jest --config jest.config.js",
-    "mocha-test": "mocha mocha/google.spec.js"
+    "mocha-test": "mocha mocha/google.spec.js",
+    "automation-local": "cross-env NODE_ENV=dev mocha mocha/google.spec.js",
+    "automation-grid": "cross-env NODE_ENV=prod mocha mocha/google.spec.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "colors": "^1.3.0",
+    "cross-env": "^5.2.0",
     "jest": "^23.2.0",
     "mocha": "^5.2.0",
     "selenium-server": "^3.12.0",

@@ -7,6 +7,7 @@ class PuppeteerEnvironment extends JestNodeEnvironment {
 
     async setup() {
         await super.setup();
+        this.global.WEBDRIVER_CLIENT = global.WEBDRIVER_CLIENT;
     }
 
     async teardown() {
